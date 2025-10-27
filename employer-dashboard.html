@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Employer Dashboard</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+<div class="container mt-5">
+  <h2>Welcome, [[${employer.fullName}]]!</h2>
+  <p class="text-muted">Here are your posted jobs.</p>
+
+  <a href="/job/post" class="btn btn-primary mb-3">+ Post New Job</a>
+
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Company</th>
+        <th>Location</th>
+        <th>Posted Date</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr th:each="job : ${jobs}">
+        <td th:text="${job.title}"></td>
+        <td th:text="${job.companyName}"></td>
+        <td th:text="${job.location}"></td>
+        <td th:text="${#temporals.format(job.postedDate, 'yyyy-MM-dd')}"></td>
+        <td>
+          <a th:href="@{'/application/job/' + ${job.id} + '/applicants'}" class="btn btn-sm btn-info">View Applicants</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
