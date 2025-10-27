@@ -1,0 +1,39 @@
+CREATE DATABASE jobportal_db;
+USE jobportal_db;
+
+CREATE TABLE IF NOT EXISTS users (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    username VARCHAR(100) NOT NULL UNIQUE,
+    email VARCHAR(150) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    role VARCHAR(20) NOT NULL,
+    full_name VARCHAR(150),
+    phone VARCHAR(15),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS jobs (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(200) NOT NULL,
+    description TEXT NOT NULL,
+    company_name VARCHAR(150) NOT NULL,
+    location VARCHAR(100),
+    salary VARCHAR(50),
+    job_type VARCHAR(50),
+    experience_required VARCHAR(50),
+    posted_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    employer_id BIGINT,
+    FOREIGN KEY (employer_id) REFERENCES users(id)
+);
+
+CREATE TABLE IF NOT EXISTS applications (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    job_id BIGINT NOT NULL,
+    applicant_id BIGINT NOT NULL,
+    cover_letter TEXT,
+    resume_path VARCHAR(255),
+    status VARCHAR(50) DEFAULT 'PENDING',
+    applied_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (job_id) REFERENCES jobs(id),
+    FOREIGN KEY (applicant_id) REFERENCES users(id)
+);
