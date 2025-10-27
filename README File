@@ -1,0 +1,64 @@
+# URL Shortener Service 
+Developed a Spring Boot-based URL Shortener that allows users to convert long URLs into short, shreable links. It supports setting a click limit and expiry duration for each URL and automatically generates a QR code for easy access. The applicaton also tracks usage and prevents access once the link expires or exceeds its click limit, ensuring secure and efficient link management.
+
+## Features
+- Shorten any valid URL
+- Custom click limit and expiry duration
+- Auto-generated QR codes for each short URL
+- Tracks remaining clicks
+- Displays an error page when a link is expired or invalid
+- Simple and clean JSP frontend with Spring MVC backend
+
+## Technologies Used
+- Backend - Spring Boot,Spring MVC, Spring Data JPA
+- Frontend - JSP, HTML, CSS
+- Database - H2
+- QR Code Generation - ZXing Library
+- Build Tool - Maven
+
+## Project Structure
+- Url.java - Represents the URL entity fields like originalUrl, shortUrl and expiry details.
+- UrlController.java  - Manages user interactions like shortening and redirecting URLs.
+- UrlService.java - Defines the service interface that declare methods for generating and redirecting shortened URLs.
+- UrlServiceImp.java - Implements the UrlService interface with the actual logic for URL shortening, QR code generation and click tracking.
+- UrlRepository.java - Provides CRUD operations for the Url entity using Spring Data JPA.
+- index.jsp - Home page for entering the original URL and shortening options.
+- result.jsp - Displays the generated short URL and QR code to the user.
+- error.jsp - Shown when an invalid, expired or unavailable short URL is accessed.
+
+## Steps to run
+- Clone or download the repository.
+- Configure the H2 database.
+- Build annd run the project.
+- Access the application through browser.
+
+
+# Job Portal System
+Developed a beginner-friendly Java Spring Boot web applications for job seekers and employeers. Employeers can post jobs and view applicants, applicants can apply for jobs, upload their resume and track their applications. The project includes file upload, email notifications, pagination and filtering.
+
+## Features
+- Employer and applicant registration / login
+- Job posting by employers
+- Job application with resume file upload by applicants
+- Employer dashboard to view posted jobs and applicants per job
+- Filtering and searching for jobs
+- Email notifications for registration and job actvity
+- View applied jobs history for applicants
+
+## Technologies Used
+- Java
+- Spring Boot
+- MySQL
+- Spring Data JPA
+- Spring Mail
+- Thymeleaf
+- Bootstrap 5
+- Lombok
+
+## Steps to run
+- Clone or download the repository.
+- Configure the MySQL database.
+- Set mail configuration.
+- Build and run the project.
+- Access the application through browser.
+
