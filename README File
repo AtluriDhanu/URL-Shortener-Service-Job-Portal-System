@@ -1,5 +1,5 @@
 # URL Shortener Service 
-Developed a Spring Boot-based URL Shortener that allows users to convert long URLs into short, shreable links. It supports setting a click limit and expiry duration for each URL and automatically generates a QR code for easy access. The applicaton also tracks usage and prevents access once the link expires or exceeds its click limit, ensuring secure and efficient link management.
+Developed a Spring Boot-based URL Shortener that allows users to convert long URLs into short, shareable links. It supports setting a click limit and expiry duration for each URL and automatically generates a QR code for easy access. The application also tracks usage and prevents access once the link expires or exceeds its click limit, ensuring secure and efficient link management.
 
 ## Features
 - Shorten any valid URL
